@@ -1,0 +1,38 @@
+.footer {
+    background-color: #051E3C;
+    color: #E1F1FF;
+    padding: 2rem;
+    margin-top: auto;
+}
+
+.team {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.team h4 {
+    margin-bottom: 1.5rem;
+    color: #E1F1FF;
+    font-size: 1.4rem;
+}
+
+.cards {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2rem;
+    border-top: 1px solid #1a3c6c;
+    padding-top: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.info h4 {
+    margin-bottom: 0.5rem;
+}

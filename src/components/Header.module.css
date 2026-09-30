@@ -1,0 +1,26 @@
+.header{
+    background-color: #051E3C;
+    color:#E1F1FF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    font-family: "Fascinate Inline";
+}
+.logo{
+    font-size:48px;
+}
+.nav{
+    display:flex;
+    gap:1.5rem;
+}
+
+.link{
+    color: #484848;
+    transition:color 0.2s;
+}
+
+.link:hover{
+    color:cadetblue;
+}
+
