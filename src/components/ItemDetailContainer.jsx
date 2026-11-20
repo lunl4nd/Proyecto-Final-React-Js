@@ -3,37 +3,52 @@ import { useParams } from 'react-router-dom';
 
 const ItemDetailContainer = () => {
   const { id } = useParams();
-  const [product, setProduct] = useState(null);
+  const [product, setProduct] = useState([]);
+  const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/productos.json')
-      .then((res) => res.json())
-      .then((data) => {
-        const foundProduct = data.find((p) => String(p.id) === String(id));
-        setProduct(foundProduct);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error('Error al obtener el producto:', err);
-        setLoading(false);
-      });
-  }, [id]);
+  fetch('/productos.json')
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('No se pudo cargar la información');
+      }
+      return response.json();
+    })
+    .then((data) => {
+      setProduct(data.filter((prod) => prod.id === id));
+    })
+    .catch((error) => {
+      setError(error.message);
+    })
+    .finally(() => {
+      setLoading(false);
+    });
+}, [id]);
+
 
   if (loading) return <h2>Cargando detalle...</h2>;
-  if (!product) return <h2>Producto no encontrado</h2>;
+  if (error) return <h2>Error: {error} </h2>;
 
   return (
-    <article className={styles.detail}>
-      <img src={product.image} alt={product.name} />
+    <div className="detail">
       <div>
-        <h2>{product.name}</h2>
-        <p>{product.description}</p>
-        <h3>${product.price}</h3>
-        <button>Agregar al carrito</button>
+        <strong> {id}</strong>
       </div>
-    </article>
-  );
+      <h1>Detalle del producto</h1>
+      <ul>
+         {product.map((product)=>(
+        <li key= {product.id}>
+          <h2>{product.name}</h2>
+          <img src={product.image} alt={product.name}/>
+          <p>Precio: ${product.price}</p>
+        </li>
+        
+        ))}
+      </ul>
+    </div>
+
+  )
 };
 
 export default ItemDetailContainer;

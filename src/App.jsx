@@ -1,19 +1,22 @@
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
-import ItemListContainer from './components/ItemListContainer';
+import { FormContainer } from './components/FormContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
-
-const Home = () => <h1>La Luna de Papel</h1>;
-const Cart = () => <h1>Carrito de Compras</h1>;
+import Home from './pages/Home';
+import Productos from './pages/Productos';
+import ProductosDestacados from './pages/ProductosDestacados';
+import Cart from './components/Cart';
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="productos" element={<ItemListContainer />} />
-        <Route path="producto/:id" element={<ItemDetailContainer />} />
-        <Route path="carrito" element={<Cart />} />
+      <Route element={<Layout/>}>
+        <Route path="/" element={<Home />} />
+        <Route path="/products" element={<Productos />} />
+        <Route path= "/destacados" element = {<ProductosDestacados />}/>
+        <Route path= "/alta" element= {<FormContainer/>}/>
+        <Route path= "/product/:id" element= {<ItemDetailContainer/>}/>
+        <Route path= "/carrito" element= {<Cart/>}/>
       </Route>
     </Routes>
   );

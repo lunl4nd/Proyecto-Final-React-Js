@@ -3,56 +3,72 @@
     "id": "1",
     "name": "Tokyo Revengers 7",
     "price": 11000,
-    "image": "img/prod1.png",
-    "description": "Tomo N°7 de la serie Tokyo Revengers. Editorial Ivrea."
+    "stock": 25,
+    "image": "/img/prod1.png",
+    "description": "Tomo N°7 de la serie Tokyo Revengers. Editorial Ivrea.",
+    "destacado": false
   },
   {
     "id": "2",
     "name": "Tokyo Revengers 8",
     "price": 11000,
-    "image": "img/prod2.png",
-    "description": "Tomo N°8 de la serie Tokyo Revengers. Editorial Ivrea."
+    "stock": 18,
+    "image": "/img/prod2.png",
+    "description": "Tomo N°8 de la serie Tokyo Revengers. Editorial Ivrea.",
+    "destacado": true
   },
   {
     "id": "3",
     "name": "Death Note 12",
     "price": 11000,
-    "image": "img/prod3.png",
-    "description": "Tomo N°12 de la serie Death Note. Editorial Ivrea."
+    "stock": 12,
+    "image": "/img/prod3.png",
+    "description": "Tomo N°12 de la serie Death Note. Editorial Ivrea.",
+    "destacado": false
   },
   {
     "id": "4",
     "name": "My hero Academia 16",
-    "precio": 11000,
-    "image": "img/prod4.png",
-    "description": "Tomo N°16 de la serie My Hero Academia. Editorial Panini."
+    "price": 11000,
+    "stock": 30,
+    "image": "/img/prod4.png",
+    "description": "Tomo N°16 de la serie My Hero Academia. Editorial Ivrea.",
+    "destacado": true
   },
   {
     "id": "5",
     "name": "Jojo's Bizarre Adventure Part III: Stardust Crusaders 5",
-    "precio": 21000,
-    "image": "img/prod5.png",
-    "description": "Tomo N°5 de la serie Stardust Crusaders. Editorial Ivrea."
+    "price": 21000,
+    "stock": 7,
+    "image": "/img/prod5.png",
+    "description": "Tomo N°5 de la serie Stardust Crusaders. Editorial Ivrea.",
+    "destacado": false
   },
    {
     "id": "6",
     "name": "Gachiakuta 7",
-    "precio": 11000,
-    "image": "img/prod6.png",
-    "description": "Tomo N°7 de la serie Gachiakuta. Editorial Ivrea."
+    "price": 11000,
+    "stock": 15,
+    "image": "/img/prod6.png",
+    "description": "Tomo N°7 de la serie Gachiakuta. Editorial Ivrea.",
+    "destacado": true
   },
    {
     "id": "7",
     "name": "Akira 1",
-    "precio": 34000,
-    "image": "img/prod7.png",
-    "description": "Tomo N°1 de la serie Akira. Editorial Ovni Press."
+    "price": 34000,
+    "stock": 4,
+    "image": "/img/prod7.png",
+    "description": "Tomo N°1 de la serie Akira. Editorial Ovni Press.",
+    "destacado": false
   },
   {
     "id": "8",
     "name": "One Punch Man 21",
     "price": 12000,
-    "image": "img/prod8.png",
-    "description": "Tomo N°21 de la serie One Punch Man. Editorial Panini."
+    "stock": 22,
+    "image": "/img/prod8.png",
+    "description": "Tomo N°21 de la serie One Punch Man. Editorial Panini.",
+    "destacado": true
   }
 ]

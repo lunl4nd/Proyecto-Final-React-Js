@@ -27,7 +27,7 @@ const Footer = () => {
     <footer className={styles.footer}>
       <section className={styles.team}>
         <h4>Nuestro equipo</h4>
-        <div className={styles.cards}> {/* 👈 Agregado este div */}
+        <div className={styles.cards}>
           {team.map((person) => (
             <PersonCard key={person.name} person={person} />
           ))}

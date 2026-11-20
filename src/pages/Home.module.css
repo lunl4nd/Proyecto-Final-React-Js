@@ -1,0 +1,60 @@
+.contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.titulo {
+    font-family: 'Fascinate Inline', cursive;
+    text-align: center;
+    font-size: 70px;
+    color: #051E3C;
+}
+
+.subtitulo {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    font-size: 36px;
+    color: #051E3C;
+    margin: 2.5rem 0 1rem;
+}
+
+.reviewGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.reviewCard {
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #d9e9ff;
+    background-color: #d9e9ff;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+.reviewCard h4 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.reviewCard p {
+    font-style: italic;
+    font-size: 18px;
+}
+
+@media (max-width: 768px) {
+    .reviewGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .titulo {
+        font-size: 42px;
+    }
+
+    .subtitulo {
+        font-size: 26px;
+    }
+}
