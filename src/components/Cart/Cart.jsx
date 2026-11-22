@@ -1,4 +1,4 @@
-import { useCart } from "../context/CartContext";
+import { useCart } from "../../context/CartContext";
 const Cart = ()=> {
     const {cart, clearCart, increase, decrease}= useCart();
     const itemImageStyle = { width: '80px', height: '80px', objectFit: 'contain', borderRadius: '4px' };

@@ -1,4 +1,4 @@
-import PersonCard from './PersonCard';
+import PersonCard from '../PersonCard/PersonCard';
 import styles from './Footer.module.css';
 
 const team = [

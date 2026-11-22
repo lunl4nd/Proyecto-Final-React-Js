@@ -1,5 +1,5 @@
-import Carousel from '../components/Carousel';
-import ItemListContainer from '../components/ItemListContainer';
+import Carousel from '../components/Carousel/Carousel';
+import ItemListContainer from '../components/ItemListContainer/ItemListContainer';
 import styles from './Home.module.css';
 
 const Home = () => (

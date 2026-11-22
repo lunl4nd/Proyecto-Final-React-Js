@@ -25,10 +25,10 @@ export const CartProvider = ({children}) =>{
     };
 
     const removeItem = (productId)=>{
-        const updatedCart = cart.filter(item=>item.id===product.id);
+        const updatedCart = cart.filter(item=>item.id!==productId);
         setCart(updatedCart);};
     
-    const isInCart(productId)=>{
+    const isInCart = (productId) => {
         return cart.some(item=>item.id===product.id);
     };
     const increase = (productId) => {

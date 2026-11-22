@@ -1,4 +1,4 @@
-import ItemListContainer from '../components/ItemListContainer';
+import ItemListContainer from '../components/ItemListContainer/ItemListContainer';
 
 const ProductosDestacados = () => (
   <ItemListContainer Message="Productos Destacados" soloDestacados />
