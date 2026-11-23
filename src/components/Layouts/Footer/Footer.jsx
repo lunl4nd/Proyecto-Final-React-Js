@@ -1,5 +1,5 @@
-import PersonCard from '../PersonCard/PersonCard';
-import styles from './Footer.module.css';
+import PersonCard from "../../PersonCard/PersonCard";
+import styles from '../Footer/Footer.module.css';
 
 const team = [
   {
