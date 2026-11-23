@@ -22,6 +22,7 @@ const ItemList = ({ products }) => {
                   to={`/product/${product.id}`}
                   variant="primary"
                   className="mt-auto"
+                  aria-label={`Ver detalle de ${product.name}`}
                 >
                   Ver detalle
                 </Button>

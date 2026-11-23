@@ -4,6 +4,7 @@ import { getProductById } from '../../../services/productCatalog';
 import { useCart } from '../../../context/CartContext';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { Helmet } from 'react-helmet';
+import {Spinner} from 'react-bootstrap';
 
 const ItemDetailContainer = () => {
   const { id } = useParams();
@@ -35,7 +36,12 @@ const ItemDetailContainer = () => {
     };
   }, [id]);
 
-  if (result.id !== id) return <h2>Cargando detalle...</h2>;
+  if (result.id !== id) return <div className="d-flex justify-content-center align-items-center"
+style={{ height: '50vh' }}>
+<Spinner animation="border" role="status">
+<span className="visually-hidden">Cargando...</span>
+</Spinner>
+</div>;
   if (result.error) return <h2 role="alert">Error: {result.error}</h2>;
   const product = result.product;
   if (!product) return <h2>No se encontró el producto.</h2>;
@@ -65,7 +71,12 @@ const ItemDetailContainer = () => {
             <h1>{product.name}</h1>
             <p className="fs-2 fw-bold">Precio: ${product.price}</p>
             {product.stock !== undefined && <p>Stock disponible: {product.stock}</p>}
-            <Button onClick={handleAddToCart}>Añadir al carrito</Button>
+            <Button
+              onClick={handleAddToCart}
+              aria-label={`Añadir ${product.name} al carrito`}
+            >
+              Añadir al carrito
+            </Button>
           </Col>
         </Row>
       </Container>

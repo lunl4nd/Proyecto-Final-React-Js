@@ -1,17 +1,21 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {getAuth, createUserWithEmailAndPassword} from "firebase/auth";
+import { Spinner } from 'react-bootstrap';
+import { useAuth } from '../../context/AuthContext';
+
 const Register = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
-    const auth = getAuth();
+    const { signup } = useAuth();
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError(null);
+        setLoading(true);
         try{
-            await createUserWithEmailAndPassword(auth, email, password);
+            await signup(email, password);
             navigate('/')
         }catch(error){
             if(error.code === 'auth/email-already-in-use'){
@@ -23,7 +27,11 @@ const Register = () => {
             }else{
                 setError("Ocurrió un error al registrar el usuario. Por favor, inténtelo de nuevo.");
                 console.error("error en el registro:", error.message);
-            }}};
+            }
+        } finally {
+            setLoading(false);
+        }
+    };
             return (
                 <div>
                     <h2>Crear nueva cuenta</h2>
@@ -46,8 +54,15 @@ const Register = () => {
                             required
                         />
                     </div>
-                    {error && <p>{error}</p>}
-                    <button type="submit">Registrarse</button>
+                    {error && <p role="alert">{error}</p>}
+                    <button type="submit" aria-label="Crear cuenta" disabled={loading}>
+                        {loading ? (
+                            <>
+                                <Spinner animation="border" size="sm" className="me-2" />
+                                Creando cuenta...
+                            </>
+                        ) : "Registrarse"}
+                    </button>
                 </form>
             </div>
             )};

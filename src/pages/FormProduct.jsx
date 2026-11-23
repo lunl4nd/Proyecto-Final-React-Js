@@ -60,7 +60,7 @@ const SaveButton = styled.button`
   ${actionButtonStyles}
 `;
 
-export function FormProduct ({ dataForm, handleChange, handleImageChange, handleSend, imagePreview, imageFileName, modoEdicion = false }){
+export function FormProduct ({ dataForm, handleChange, handleImageChange, handleSend, imagePreview, imageFileName, modoEdicion = false, saving = false }){
      const formStyle = {
     flex: 1,
     maxWidth: '1200px',
@@ -82,7 +82,7 @@ export function FormProduct ({ dataForm, handleChange, handleImageChange, handle
         </FormField>
         <FormField>
             <label> Stock: </label>
-            <input type ="number" name="stock" value={dataForm.stock ?? ''} placeholder='10' onChange={handleChange} min="0"/>
+            <input type ="number" name="stock" value={dataForm.stock ?? ''} placeholder='10' onChange={handleChange} min="0" required/>
         </FormField>
         <FormField>
             <label>Imagen:</label>
@@ -100,7 +100,9 @@ export function FormProduct ({ dataForm, handleChange, handleImageChange, handle
                 </div>
             )}
         </FormField>
-        <SaveButton type="submit">{modoEdicion ? 'Actualizar producto' : 'Guardar producto'}</SaveButton>
+        <SaveButton type="submit" disabled={saving}>
+            {saving ? 'Guardando...' : (modoEdicion ? 'Actualizar producto' : 'Guardar producto')}
+        </SaveButton>
     </form>
   )
 }

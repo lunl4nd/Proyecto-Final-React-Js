@@ -12,14 +12,28 @@ export default function Item ({ product }){
   };
   return (
     <article className={styles.card}>
-      <Link to={`/product/${id}`} className={styles.button}>
+      <Link
+        to={`/product/${id}`}
+        className={styles.button}
+        aria-label={`Ver información de ${name}`}
+      >
         <img src={image} alt={name} className={styles.image} />
         <h3 className={styles.name}>{name}</h3>
         <p className={styles.price}>${price}</p>
         <p> Stock Disponible: {stock}</p>
       </Link>
-      <Link to={`/product/${id}`}>Ver Detalle </Link>
-      <button onClick={handleAddToCart}>Añadir al carrito</button>
+      <Link
+        to={`/product/${id}`}
+        aria-label={`Ver detalle de ${name}`}
+      >
+        Ver Detalle
+      </Link>
+      <button
+        onClick={handleAddToCart}
+        aria-label={`Añadir ${name} al carrito`}
+      >
+        Añadir al carrito
+      </button>
       {currentQuantity > 0 && <p>En el carrito: {currentQuantity}</p>}
     </article>
   )

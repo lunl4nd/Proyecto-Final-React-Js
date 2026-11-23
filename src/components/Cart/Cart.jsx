@@ -134,8 +134,20 @@ const EmptyCart = styled.p`
   margin-top: 24px;
 `;
 
+const RemoveButton = styled.button`
+  ${actionButtonStyles}
+  border-color: #9f1239;
+  color: #9f1239;
+
+  &:hover {
+    background: #9f1239;
+    border-color: #9f1239;
+    color: #ffffff;
+  }
+`;
+
 const Cart = () => {
-  const { cart, clearCart, increase, decrease, getCartTotal } = useCart();
+  const { cart, clearCart, increase, decrease, removeItem, getCartTotal } = useCart();
 
   return (
     <CartPage>
@@ -169,6 +181,13 @@ const Cart = () => {
                   >
                     +
                   </QuantityButton>
+                  <RemoveButton
+                    type="button"
+                    aria-label={`Eliminar ${item.name} del carrito`}
+                    onClick={() => removeItem(item.id)}
+                  >
+                    Eliminar
+                  </RemoveButton>
                 </QuantityControls>
               </CartItem>
             ))}

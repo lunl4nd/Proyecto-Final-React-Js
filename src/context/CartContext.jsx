@@ -25,11 +25,15 @@ export const CartProvider = ({children}) =>{
     };
 
     const removeItem = (productId)=>{
-        const updatedCart = cart.filter(item=>item.id!==productId);
-        setCart(updatedCart);};
+        const confirm = window.confirm("¿Estás seguro de que deseas eliminar este producto del carrito?");
+        if(confirm){
+            const updatedCart = cart.filter(item=>item.id!==productId);
+            setCart(updatedCart);
+        }
+    };
     
     const isInCart = (productId) => {
-        return cart.some(item=>item.id===product.id);
+        return cart.some(item=>item.id===productId);
     };
     const increase = (productId) => {
     setCart(prevCart => prevCart.map(item =>
@@ -40,11 +44,15 @@ export const CartProvider = ({children}) =>{
 };
 
     const decrease = (productId) => {
-        setCart(prevCart => prevCart.map(item =>
-            item.id === productId
-                ? { ...item, quantity: Math.max(item.quantity - 1, 0) }
-                : item
-        ));
+        setCart(prevCart =>
+            prevCart
+                .map(item =>
+                    item.id === productId
+                        ? { ...item, quantity: item.quantity - 1 }
+                        : item
+                )
+                .filter(item => item.quantity > 0)
+        );
     };
     const clearCart=() => {
         setCart([]);
